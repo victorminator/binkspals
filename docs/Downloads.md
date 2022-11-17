@@ -6,7 +6,7 @@ Download the latest version of BinksPals on your mobile device on this page.
 
 #### Android
 
-[BinksPals 0.1 for Android](resources/binkspals.apk)
+[BinksPals 0.1 for Android](https://github.com/victorminator/binkspals/releases/download/v0.1-beta/binkspals.apk)
 
 #### IOS
 
@@ -16,7 +16,7 @@ BinksPals 0.1 for IOS
 
 #### Android
 
-[BinksPals 0.1 for Android](resources/binkspals.apk)
+[BinksPals 0.1 for Android](https://github.com/victorminator/binkspals/releases/download/v0.1-beta/binkspals.apk)
 
 #### IOS
 
