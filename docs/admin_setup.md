@@ -38,6 +38,7 @@ Once the representative accepts your demand, they will send you your school ID. 
 This school ID is also necessary when creating a student or teacher account in order to identify the establishment they are part of. However, in order for BinksPals to operate properly in your establishment, at least one teacher and one student should create an account. So all there is left to do now is to communicate this school ID to various teachers and students from your establishment and _only_ from your establishment.
 
 ## Next steps
-- Managing accounts (admin)
-
+- [Managing accounts](admin.md) (admin)
+- [Security Guide](security.md)
+- [Our hopes for the future and supporting us](support.md)
 

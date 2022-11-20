@@ -25,7 +25,7 @@ As a teacher or student, you will be asked to provide your _school ID_. It may b
 // Student form image + Teacher form image + Admin form image //
 
 !!!Info
-    Please prefer using your **academic email address** when registering in BinksPals as a teacher or an admin. This will drastically help proving your identity.
+    Please prefer using your **public academic email address** when registering in BinksPals as a teacher or an admin. This will drastically help proving your identity.
 
 !!!Warning
     You cannot create a student or teacher account while your school's BinksPals admin has not registered the establishment.
@@ -38,7 +38,7 @@ There's a last step to complete before you account can be created. You must veri
 
 ## Activating your account
 
-Although you have created your account, it is useless while you have not activated it. This guide will help you activating a teacher or student account. If you're trying to set up BinksPals for your establishment as a **school admin**, please follow [this guide](index.md) instead.
+Although you have created your account, it is useless while you have not activated it. This guide will help you activating a teacher or student account. If you're trying to set up BinksPals for your establishment as a **school admin**, please follow [this guide](admin_setup.md) instead.
 
 !!!info
     You will not be asked to activate your account if you are the first teacher/student from your establishment registering in BinksPals.
@@ -49,7 +49,7 @@ Although you have created your account, it is useless while you have not activat
 
 - To activate a teacher account, you will require your school's admin authorization. 
 
-- To activate an admin account, you will require a BinksPals' representative authorization, more details availabe on [this page](index.md).
+- To activate an admin account, you will require a BinksPals' representative authorization, more details availabe on [this page](admin_setup.md).
 
 #### 2. Submitting the required email addresses
 
@@ -65,6 +65,6 @@ After some time, you should  have been contacted by the person(s) who received y
 
 ## Next Steps
 
-- Finding a penpal (student)
-- Finding an exchange partner (teacher)
-- Setting up BinksPals for your school (admin) 
+- [Finding a penpal](penpals.md) (student)
+- [Finding an exchange partner](teacher.md) (teacher)
+- [Setting up BinksPals for your school](admin_setup.md) (admin) 

@@ -19,29 +19,20 @@ BinksPals is not just a mobile application, it is a community of schools, studen
 ## Table of contents
 
 ### 1. Setup
-- [Download page](Downloads.md)
+- [Downloads page](Downloads.md)
 - [Account creation and activation](account_setup.md)
 - [Registering your school as an admin](admin_setup.md)
 
-### 2. Student accounts 
-- Finding a penpal
-- Security guide
-- Account settings
+### 2. Using BinksPals
+- [Finding a penpal](penpals.md) (student)
+- [Finding exchange partners](teacher.md) (teacher)
+- [Managing teacher and student accounts from your establishment](admin.md) (admin)
+- [Security guide](security.md)
 
-### 3. Teacher accounts
-- Finding an exchange partner
-- Security guide
-
-
-### 4. Admin accounts
-- Verifying another admin account
-- Managing teacher and student accounts from your establishment
-
-### 5. Team presentation 
-- Our values
-- Our hopes for the future and supporting us
-- The story behind BinksPals
-
+### 3. Team presentation 
+- [Our values](values.md)
+- [Our hopes for the future and supporting us](support.md)
+- [The story behind BinksPals](story.md)
 
 ### Additional Information
 - FAQ 

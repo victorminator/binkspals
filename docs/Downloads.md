@@ -24,7 +24,7 @@ BinksPals 0.1 for IOS
 
 ## Next steps
 
-- [Creating an account](account_setup.md)
-- Finding a penpal (student)
-- Finding an exchange partner (teacher)
-- Managing accounts (admin)
+- [Creating and activating your account](account_setup.md)
+- [Setting up BinksPals for your school](admin_setup.md) (admin)
+- [Finding a penpal](penpals.md) (student)
+- [Finding an exchange partner](teacher.md) (teacher)
