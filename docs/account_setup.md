@@ -40,28 +40,13 @@ There's a last step to complete before you account can be created. You must veri
 
 Although you have created your account, it is useless while you have not activated it. This guide will help you activating a teacher or student account. If you're trying to set up BinksPals for your establishment as a **school admin**, please follow [this guide](admin_setup.md) instead.
 
-!!!info
-    You will not be asked to activate your account if you are the first teacher/student from your establishment registering in BinksPals.
+### Teacher and student accounts
 
-#### 1. Requirements
+You have to wait for your school's admin permission, make sure you respect the [requirements](security.md) from our security guide.
 
-- To activate a student account, you need a teacher's and a student's authorization (who are part of your school and who have already activated their account). 
+### Admin accounts
 
-- To activate a teacher account, you will require your school's admin authorization. 
-
-- To activate an admin account, you will require a BinksPals' representative authorization, more details availabe on [this page](admin_setup.md).
-
-#### 2. Submitting the required email addresses
-
-Submit the email address of the specified persons, as described in the requirements
-
-// Student_img + Teacher_img //
-
-#### 3. Inputting the activation keys
-
-After some time, you should  have been contacted by the person(s) who received your activation key(s). If not you should get in touch with them as soon as possible. If your activation demand was accepted, input the activation key(s) as follows :
-
-// Activation demo video //
+Details for activating your admin account and setting up BinksPals for your school are available on [this page](admin_setup.md).
 
 ## Next Steps
 

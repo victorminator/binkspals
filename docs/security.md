@@ -4,11 +4,11 @@ This guide will introduce some of the good security practices in order to make B
 
 ## Activating accounts
 
-When you receive someone's activation key, **do not give it straight away without examination!** You will find on this page a list of activation requirements for each account type (student, teacher, and admin).
+When you receive someone's activation request, **do not accept it straight away without examination!** You will find on this page a list of activation requirements for each account type (student, teacher, and admin).
 
 ### Student's requirements
 
-Activated student and teacher accounts may help students activating theirs. But before you communicate their communication key, please make sure that:
+Before activating a sudent account, please make sure that:
 
 - The student demonstrates a high/fluent level in English as all exchanges with other students will be in English
 - The student is part of your educational establishment
@@ -19,10 +19,10 @@ Activated student and teacher accounts may help students activating theirs. But 
 
 ### Teacher's requirements
 
-A school's BinksPals admin may help teachers from their school to activate their account. Before communicating them their activation key, please make sure that:
+Before activating a teacher account, please make sure that:
 
 - The teacher is part of your educational establishment
-- The teacher is willing to promote BinksPals among their students and helping them activating their account
+- The teacher is willing to promote BinksPals among their students or desires help to organise an international exchange
 - You have met with the teacher in person to verify if they indeed asked for an account activation from you
 
 ### Admin's requirements

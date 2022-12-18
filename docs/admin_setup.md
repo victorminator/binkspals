@@ -4,11 +4,8 @@ This guide will help you activating your admin account by setting up BinksPals f
 
 ## 1. Requirements
 
-Before diving into it, please make sure that:
+Before diving into it, please make sure that you have used your school's public email address (the one we may find on the Web) when you created your BinksPals admin account.
 
-- You have used your school's public email address (the one we may find on the Web) when you created your BinksPals admin account.
-- There's at least one teacher in your school interested towards using BinksPals
-- There's at least one student in your school interested towards using BinksPals
 
 ## 2. Registering your school
 
@@ -35,7 +32,7 @@ Once the representative accepts your demand, they will send you your school ID. 
 - Click on the _I have received my ID_ button
 - Enter the school ID you have received and click on the _Verify ID_ button
 
-This school ID is also necessary when creating a student or teacher account in order to identify the establishment they are part of. However, in order for BinksPals to operate properly in your establishment, at least one teacher and one student should create an account. So all there is left to do now is to communicate this school ID to various teachers and students from your establishment and _only_ from your establishment.
+This school ID is also necessary when creating a student or teacher account in order to identify the establishment they are part of. So all there is left to do now is to communicate this school ID to various teachers and students from your establishment and _only_ from your establishment.
 
 ## Next steps
 - [Managing accounts](admin.md) (admin)
