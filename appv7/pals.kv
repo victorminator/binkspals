@@ -1,0 +1,2643 @@
+#:import get_hex kivy.utils.get_color_from_hex
+
+PalsManager:
+    InitScreen:
+    LoginScreen:
+    SignupScreen:
+    MenuScreen:
+    NotificationScreen:
+    ActivationNotificationScreen:
+    ActivateScreen:
+    InputActivationScreen:
+    AdminActivateScreen:
+    PenpalScreen:
+    StatusScreen:
+    ProfileScreen:
+    SupportScreen:
+    ManageAccountScreen
+    HelpScreen:
+    SettingsScreen:
+    IdInputScreen:
+    BookScreen:
+    ForgotScreen:
+    SchoolRegistrationScreen:
+    SchoolScreen:
+    ConfirmationScreen:
+    SchoolSearchScreen:
+    DescriptionViewScreen:
+    DescriptionInputScreen
+    LostConnectionScreen:
+
+<InitScreen>:
+    name:"init"  
+
+<DescriptionViewScreen>:
+    name:"description_view"
+    on_pre_enter:self.setup()
+    on_pre_leave:self.clear_screen()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"School description"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            size_hint_y:0.7
+            font_size:'20sp'
+        BoxLayout:
+            orientation:"vertical"
+            id:main_description
+        Label:
+            text:"Ongoing projects"
+            size_hint_y:0.7
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'20sp'
+        BoxLayout:
+            orientation:"vertical"
+            id:ongoing_description
+        Label:
+            text:"Planned projects"
+            size_hint_y:0.7
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'20sp'
+        BoxLayout:
+            orientation:"vertical"
+            id:planned_description
+        Label:
+            size_hint_y:0.2
+        BoxLayout:
+            orientation:"horizontal"
+            id:bottom_menu
+            size_hint_y:0.5
+            Button:
+                text:"Back"
+                on_press:app.root.current = "school_info"
+                background_color:get_hex("#29bc90")
+            Button:
+                id:second_button
+                on_press:root.right_btn_action()
+                background_color:get_hex("#29bc90")
+
+
+<DescriptionInputScreen>:
+    name:"description_input"
+    on_pre_enter:self.setup()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"School Description"
+            font_name:"fonts/Shadow-7WdR.ttf"
+            color:get_hex("#29bc90")
+            font_size:'35sp'
+            size_hint_y:0.5
+        Label:
+            size_hint_y:0.4
+            text:"School Description"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'20sp'
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                multiline:True
+                size_hint_x:0.9
+                hint_text:"1000 characters max"
+                id:desc_main
+        Label:
+            size_hint_y:0.4
+            text:"Ongoing projects"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'20sp'
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                multiline:True
+                size_hint_x:0.9
+                hint_text:"1000 characters max"
+                id:desc_ongoing
+        Label:
+            size_hint_y:0.4
+            text:"Planned projects"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'20sp'
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                multiline:True
+                size_hint_x:0.9
+                hint_text:"1000 characters max"
+                id:desc_planned
+        Label:
+            size_hint_y:0.2
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint_y:0.5
+            Button:
+                text:"Cancel"
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = root.prev_screen
+            Button:
+                text:"Save changes"
+                background_color:get_hex("#29bc90")
+                on_press:root.submit_inputs()
+
+<ManageAccountScreen>:
+    name:"manage"
+    on_pre_enter:self.setup()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    AnchorLayout:
+        anchor_x:"right"
+        anchor_y:"center"
+        Image:
+            source:"images/manage_user.png"
+            size_hint:[0.45, 0.45]
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            size_hint_y:0.5
+        Label:
+            text:"Account Information"
+            font_name:"fonts/SpicyRice-Regular.ttf"
+            font_size:'28sp'
+            color:get_hex("#46b9f2")
+        Label:
+            size_hint_y:0.1
+        Label:
+            size_hint:[0, 1]
+            id:account_name
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:account_email
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:account_creation_date
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:account_last_online
+            font_size:'19sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:account_activated
+            font_size:'19sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:account_key
+            font_size:'17.5sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[1, 0.5]
+        BoxLayout:
+            orientation:"horizontal"
+            Button:
+                text:"Back"
+                on_press:app.root.current = "book"
+                background_color:get_hex("#29bc90")
+            Button:
+                text:"Disable account"
+                id:action_button
+                background_color:get_hex("#29bc90")
+                on_press:root.confirm_disable()
+
+
+<LostConnectionScreen>:
+    name:"lost_connection"
+    on_pre_leave:self.clear_screen()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"Connection lost"
+            font_name:"fonts/Shadow-7WdR.ttf"
+            color:get_hex("#29bc90")
+            font_size:'45sp'
+        Label:
+            text:"You were disconnected from the server!"
+            color:get_hex("#f54d53")
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            size_hint_y:3.0
+            Image:
+                source:"images/no-wifi.png"
+        Label:
+            size_hint_y:0.4
+        Label:
+            text:"Please check your Internet"
+            font_size:'20.5sp'
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"top"
+            size_hint_y:0.7
+            Label:
+                size_hint_y:0.1
+                font_size:'20.5sp'
+                text:"connection and reload the app."
+        Label:
+            id:connect_error
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'20sp'
+        Button:
+            text:"Reload app"
+            font_size:'20sp'
+            background_color:get_hex("#29bc90")
+            on_press:root.reload_app()
+
+<SchoolScreen>:
+    name:"school_info"
+    on_pre_enter:self.setup()
+    on_pre_leave:self.reset()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    AnchorLayout:
+        anchor_x:"right"
+        anchor_y:"center"
+        Image:
+            source:"images/school.png"
+            size_hint:[0.45, 0.45]
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            size_hint_y:0.5
+        Label:
+            text:"School Information"
+            font_name:"fonts/SpicyRice-Regular.ttf"
+            font_size:'27sp'
+            color:get_hex("#46b9f2")
+        Label:
+            size_hint_y:0.1
+        Label:
+            size_hint:[0, 1]
+            id:school_name
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:school_address
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:school_city
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:school_code
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            id:school_country
+            size_hint_x:None
+            size:(50, 0)
+            font_size:'20sp'
+            font_name:"fonts/MaidenOrange.ttf"
+            AnchorLayout:
+                anchor_x:"center"
+                anchor_y:"center"
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+                Image:
+                    source:"images/flags/empty_flag.png"
+                    size_hint:[1.35, 1.35]
+        Label:
+            size_hint:[0, 1]
+            id:school_type
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[1, 0.5]
+        BoxLayout:
+            orientation:"horizontal"
+            Button:
+                text:"Back"
+                on_press:app.root.current = root.next_screen
+                background_color:get_hex("#29bc90")
+            Button:
+                text:"See description"
+                on_press:app.root.current = "description_view"
+                background_color:get_hex("#29bc90")
+        
+
+<SchoolSearchScreen>:
+    name:"school_search"
+    on_pre_enter:self.setup()
+    on_pre_leave:self.clear_screen()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        BoxLayout:
+            size_hint_y:0.1
+            orientation:"horizontal"
+            TextInput:
+                multiline:False
+                id:search_input
+                hint_text:"School name, ID, country, city..."
+                on_text_validate:root.search_schools()
+            Button:
+                size_hint_x:0.15
+                background_normal:""
+                background_normal:""
+                background_color:get_hex("#d7d7d7")
+                on_press:root.search_schools()
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/search.png"
+                        size_hint:[0.25, 0.25]
+        ScrollView:
+            do_scroll_x:False
+            do_scroll_y:True
+            BoxLayout:
+                canvas.before:
+                    Color:
+                        rgba:get_hex("#c2e4ed")
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+                orientation:"vertical"
+                id:school_display
+                size_hint_y:None
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint_y:0.1
+            Button:
+                text:"Back"
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "menu"
+            Button:
+                text:"More filters"
+                background_color:get_hex("#29bc90")
+
+<LoginScreen>:
+    name:"login"
+    on_leave:self.clear_texts()
+    on_pre_enter:self.setup()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'56sp'
+        Label:
+            text:"Please log in to your account"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'20sp'
+            color:get_hex("#61f1ea")
+        AnchorLayout:
+            anchor_x:"left"
+            anchor_y:"bottom"
+            Label:
+                markup:True
+                text:"Email[color=#110f1b]ord[/color]"
+                font_size:'18sp'
+                size_hint_x:0.365
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                id:email_login
+                hint_text:"Email"
+                multiline:False
+                size_hint_x:0.8
+        Label:
+            size_hint_y:0.5
+        AnchorLayout:
+            anchor_x:"left"
+            anchor_y:"bottom"
+            Label:
+                text:"Password"
+                font_size:'18sp'
+                size_hint_x:0.365
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                id:password_login
+                hint_text:"Password"
+                size_hint_x:0.8
+                multiline:False
+                password:True
+                password_mask:"•"
+                allow_copy:False
+        Label:
+            id:wrong_login
+            color:get_hex("#f54d53")
+            font_size:'20.5sp'
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        Label:
+            text:"Remember me"    
+            CheckBox:
+                canvas.before:
+                    Color:
+                        rgb: get_hex("#89e1c7")
+                    Rectangle:
+                        pos:self.center_x-sp(8), self.center_y-sp(8)
+                        size:[sp(16),sp(16)]
+                    Color:
+                        rgb: 1,1,1
+                    Rectangle:
+                        pos:self.center_x-sp(7), self.center_y-sp(7)
+                        size:[sp(14),sp(14)]
+                id:remember_checkbox
+                center_x:self.parent.center_x + sp(65)
+                center_y:self.parent.center_y
+                color:get_hex("#89e1c7")
+        Label:
+            size_hint_y:0.2
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            Button:
+                text:"Log in"
+                background_color:get_hex("#29bc90")
+                size_hint_x:0.8
+                on_press:root.login()
+        Label:
+            markup:True
+            text:"[ref=forgot][u]Forgot password ?[/u][/ref]"
+            color:get_hex("#89e1c7")
+            on_ref_press:app.root.current = "forgot"
+        Label:
+            markup:True
+            text:"[ref=signup][u]No account yet ? Create one ![/u][/ref]"
+            color:get_hex("#89e1c7")
+            on_ref_press:app.root.current = "status"
+
+<SchoolRegistrationScreen>:
+    name:"register_school"
+    on_pre_enter:self.launch_fixes()
+    canvas:
+        Color:
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            pos:self.pos
+            size:self.size 
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            size_hint_y:0.2
+        Label:
+            text:"BinksPals"
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'56sp'
+        Label:
+            text:"Registering your school"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'20sp'
+            color:get_hex("#61f1ea")
+        Label:
+            text:"Please enter the informations"
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"top"
+            Label:
+                size_hint_y:0.2
+                text:"associated to your establishment"
+        Label:
+            text:"School name"
+            size_hint_y:0.5
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                multiline:False
+                size_hint_x:0.7
+                hint_text:"School name"
+                size_hint_y:0.7
+                id:input_name
+        Label:
+            id:invalid_name
+            size_hint_y:0.8
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        Label:
+            text:"School Type"
+            size_hint_y:0.8
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"           
+            Spinner:
+                size_hint_x:0.7
+                background_color:get_hex("#29bc90")
+                id:spinner_school_type
+                values:["High School", "Middle School", "Higher Education"]
+                text:"High School"
+        Label:
+            text:"Country code"
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"    
+            TextInput:
+                size_hint_x:0.7
+                size_hint_y:0.7
+                multiline:False
+                hint_text:"Country code"
+                id:input_country
+        Label:
+            id:invalid_country
+            size_hint_y:0.8
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        Label:
+            text:"City"
+            size_hint_y:0.8
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                size_hint_x:0.7
+                size_hint_y:0.7
+                multiline:False
+                hint_text:"City"
+                id:input_city
+        Label:
+            id:invalid_city
+            size_hint_y:0.8
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        Label:
+            text:"Postal Address"
+            size_hint_y:0.8
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                size_hint_x:0.7
+                size_hint_y:0.7
+                hint_text:"Street number and name"
+                multiline:False
+                id:input_address
+        Label:
+            id:invalid_address
+            size_hint_y:0.8
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        Label:
+            text:"Postal Code"
+            size_hint_y:0.8
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                size_hint_x:0.7
+                size_hint_y:0.7
+                hint_text:"Postal code"
+                multiline:False
+                id:input_postcode
+        Label:
+            id:invalid_postcode
+            size_hint_y:0.8
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        BoxLayout:
+            orientation:"horizontal"
+            Button:
+                text:"Cancel"
+                on_press:app.root.current = "menu"
+                background_color:get_hex("#29bc90")
+            Button:
+                text:"Register"
+                on_press:root.register_school()
+                background_color:get_hex("#29bc90")
+
+<MenuScreen>:
+    name:"menu"
+    on_pre_enter:self.setup()
+    on_pre_leave:self.parent.set_last_entered("menu")
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'80sp'
+        Label:
+            text:"Discovering the world!"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'30sp'
+        Label:
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'20sp'
+            id:main_text
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"top"
+            size_hint_y:0.2
+            Label:
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+                size_hint_y:0.2
+                id:secondary_text
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"top"
+            Image:
+                id:earth_planet
+                source:"images/earth_planet.png"
+                size_hint_x:1.85
+                size_hint_y:1.85
+        Label:
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            Button:
+                id:main_button
+                on_press:root.transition()
+                size_hint_x:0.75
+                size_hint_y:1.2
+                background_color:get_hex("#29bc90")
+                font_name:"fonts/BroshkPlum-YzqJL.ttf"
+                font_size:'31sp'
+                
+        Label:
+            text:"[ref=logout][u]Log out[/u][/ref]"
+            markup:True
+            font_size:'18sp'
+            on_ref_press:root.logout()
+            color:get_hex("#89e1c7")
+        Label:
+            id:status_label
+            font_size:'15sp'
+        BoxLayout:
+            canvas:
+                Color: 
+                    rgba:get_hex("#46b9f2")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            orientation:"horizontal"
+            size_hint_y:0.98
+            background_color:get_hex("#eeeeee")
+            Button:
+                background_color:get_hex("#29bc90")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/globe_icon.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:root.goto_screen("book")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/book_copy.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "notif"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/comment.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:root.goto_screen("support_us")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/support.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:root.goto_screen("help")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/help.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:root.goto_screen("settings")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/gear.png"
+                        size_hint:[1.5, 1.5]
+
+<ConfirmationScreen>:
+    name:"confirm_email"
+    on_pre_enter:self.setup()
+    on_enter:self.launch_event()
+    on_pre_leave:self.clear_texts()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            font_name:"fonts/Shadow-7WdR.ttf"
+            color:get_hex("#29bc90")
+            font_size:'45sp'
+        Label:
+            text:"Verifying your email"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'26sp'
+        Label:
+            text:"A confirmation code has been"
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"top"
+            size_hint_y:0.2
+            Label:
+                size_hint_y:0.2
+                text:"sent to verify that it's you"
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            size_hint_y:2.0
+            Image:
+                source:"images/confirm_mail.png"
+                size_hint:[1.01, 1.01]
+        Label:
+            text:"Enter the 10 digits code sent to"
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"top"
+            Label:
+                size_hint_y:0.2
+                id:mail_notify
+        AnchorLayout:   
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                id:input_code
+                hint_text:"Confirmation code"
+                multiline:False
+                size_hint_x:0.5
+        Label:
+            id:invalid_code
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'19sp'
+        AnchorLayout:   
+            anchor_x:"center"
+            anchor_y:"center"
+            Button:
+                size_hint_x:0.75
+                background_color:get_hex("#29bc90")
+                text:"Validate"
+                on_press:root.validate_code()
+        Label:
+            markup:True
+            id:resend_code
+            text:"[ref=sendcode][u]Resend Code[/u][/ref]"
+            color:get_hex("#89e1c7")
+            on_ref_press:root.send_code(True)
+        Label:
+            id:loading_label
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'20.5sp'
+        Button:
+            background_color:get_hex("#29bc90")
+            text:"Cancel"
+            on_press:root.back_button_event()
+    Button:
+        disabled:False
+        background_normal:""
+        background_down:""
+        background_color:get_hex("#110f1b")
+        text:"Loading ..."
+        font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        font_size:'40sp'
+        id:pre_loading
+
+<ActivateScreen>:
+    name:"activate"
+    on_pre_enter:self.setup()
+    on_leave:self.clear_all()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            font_size:'42sp'
+            font_name:"fonts/Shadow-7WdR.ttf"
+            color:get_hex("#29bc90")
+        Label:
+            text:"Activating your account"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'22sp'
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                id:first_text
+            AnchorLayout:
+                anchor_x:"center"
+                anchor_y:"top"
+                Label:
+                    id:second_line
+                    size_hint_y:0.2        
+        Label:
+            text:"Note: They must have a BinksPals account"
+            color:get_hex("#f54d53")        
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"They will receive an activation key"
+            AnchorLayout:
+                anchor_x:"center"
+                anchor_y:"top"
+                Label:
+                    text:"necessary to activate your account"
+                    size_hint_y:0.2
+        Label
+            text:"Teacher's email"
+            size_hint_y:0.5
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                multiline:False
+                size_hint_x:0.8
+                id:input_teacher
+                hint_text:"Teacher email"
+                size_hint_y:0.7
+        BoxLayout:
+            orientation:"vertical"
+            id:invalid_teacher_box
+            Label:
+                id:invalid_teacher
+                color:get_hex("#f54d53")
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            Label:
+                id:invalid_teacher2
+                color:get_hex("#87e84f")
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            Label:
+                id:invalid_teacher3
+                color:get_hex("#f54d53")
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        Label:
+            text:"Student's email"
+            size_hint_y:0.5
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                multiline:False
+                size_hint_x:0.8
+                id:input_student
+                hint_text:"Student email"
+                size_hint_y:0.7
+        BoxLayout:
+            orientation:"vertical"
+            id:invalid_student_box
+            Label:
+                id:invalid_student
+                color:get_hex("#f54d53")
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            Label:
+                id:invalid_student2
+                color:get_hex("#87e84f")
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            Label:
+                id:invalid_student3
+                color:get_hex("#f54d53")
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        Label:
+            size_hint_y:0.3
+        BoxLayout:
+            orientation:"horizontal"
+            Button:
+                text:"Cancel"
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "menu"
+            Button:
+                text:"I have my key"
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "input_activation"
+            Button:
+                text:"Send key"
+                background_color:get_hex("#29bc90")
+                on_press:root.send_key()
+
+<InputActivationScreen>:
+    name:"input_activation"
+    on_pre_enter:self.setup()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            font_name:"fonts/Shadow-7WdR.ttf"
+            color:get_hex("#29bc90")
+            font_size:'55sp'
+        Label:
+            text:"Activating your account"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'29sp'
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"Please enter the activation key(s)"
+            Label:    
+                text:"The teacher and student you have chosen"
+                id:label_receivers
+            Label:
+                text:"should have received it in their mailbox"
+        Label:
+            text:"Teacher key"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'21sp'
+            color:get_hex("#87e84f")
+            id:pre_teacher_input
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"top"
+            TextInput:
+                id:teacher_key
+                multiline:False
+                hint_text:"Key received by teacher"
+                size_hint_y:0.6
+                size_hint_x:0.7
+        Label:
+            text:"Student key"
+            font_size:'21sp'
+            color:get_hex("#87e84f")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            id:pre_student_input
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"top"
+            id:input_contain
+            TextInput:
+                multiline:False
+                id:input_key
+                hint_text:"Key received by student"
+                size_hint_x:0.7
+                size_hint_y:0.6
+        Label:
+            id:invalid_key
+            color:get_hex("#f54d53")
+            font_size:'20sp'
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        BoxLayout:
+            orientation:"horizontal"
+            Button:
+                text:"Back"
+                on_press:root.back_button_event()
+                background_color:get_hex("#29bc90")
+            Button:
+                text:"Activate Account"
+                on_press:root.account_activation()
+                background_color:get_hex("#29bc90")
+
+<IdInputScreen>:
+    name:"school_id_input"
+    on_pre_enter:self.setup()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            font_name:"fonts/Shadow-7WdR.ttf"
+            color:get_hex("#29bc90")
+            font_size:'50sp'
+        BoxLayout:
+            size_hint_y:0.6
+            orientation:"vertical"
+            Label:
+                text:"Enter the school ID you"
+                font_size:'22sp'
+                italic:True
+            Label:
+                text:"have received."
+                font_size:'22sp'
+                italic:True
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                size_hint_x:0.8
+                multiline:False
+                hint_text:"School ID"
+                id:main_input
+                size_hint_y:0.5
+        Label:
+            size_hint_y:0.18
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            Button:
+                text:"Verify ID"
+                size_hint_y:0.8
+                size_hint_x:0.7
+                font_size:'22sp'
+                font_name:"fonts/BroshkPlum-YzqJL.ttf"
+                background_color:get_hex("#29bc90")
+                on_press:root.verify_id()
+        Label:
+            id:id_error
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'26sp'
+        Button:
+            text:"Back"
+            size_hint_y:0.5
+            background_color:get_hex("#29bc90")
+            on_press:app.root.current = "admin_activate"
+
+
+<AdminActivateScreen>:
+    name:"admin_activate"
+    on_pre_enter:self.setup()
+    on_leave:self.refresh()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'36sp'
+            color:get_hex("#29bc90")
+        Label:
+            text:"Activating an admin account"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'20sp'
+            color:get_hex("#61f1ea")
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"An email was sent to BinksPals"
+            AnchorLayout:
+                anchor_x:"center"
+                anchor_y:"top"
+                Label:
+                    size_hint_y:0.2
+                    text:"representatives for verification."
+        Label:
+            markup:True
+            text:"Please wait until we provide you an ID"                
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            size_hint_y:1.35
+            Button:
+                text:"I have received my ID"
+                on_press:app.root.current = "school_id_input"
+                size_hint_x:0.75
+                font_size:'22sp'
+                font_name:"fonts/BroshkPlum-YzqJL.ttf"
+                background_color:get_hex("#29bc90")
+        Label:
+            size_hint_y:0.2
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"We are likely to contact you through"
+                font_size:'20sp'
+                color:get_hex("#f54d53")
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            AnchorLayout:
+                anchor_x:"center"
+                anchor_y:"top"
+                Label:
+                    size_hint_y:0.2
+                    font_size:'20sp'
+                    font_name:"fonts/LunaticSuperstar-8KgB.otf"
+                    text:"your school's official public email"
+                    color:get_hex("#f54d53")
+        Label:
+            size_hint_y:0.4
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"If your demand is accepted, you will be"
+            Label:
+                text:"provided a school ID to activate your"
+            Label:
+                text:"account and register your establishment"
+        Label:
+            markup:True
+            font_size:'14.5sp'
+            text:"More information available on [u][color=#89e1c7][ref=documentation]our documentation[/u][/color][/ref]"
+            on_ref_press:root.open_doc()
+        BoxLayout:
+            orientation:"horizontal"
+            Button:
+                text:"Back"
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "menu"
+            Button:
+                text:"Edit school details"
+                background_color:get_hex("#29bc90")
+    Button:
+        disabled:False
+        background_normal:""
+        background_down:""
+        background_color:get_hex("#110f1b")
+        text:"Loading ..."
+        font_name:"fonts/LunaticSuperstar-8KgB.otf"
+        font_size:'40sp'
+        id:pre_loading
+
+
+<PenpalScreen>:
+    name:"penpal"
+    on_pre_enter:self.match()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    AnchorLayout:
+        anchor_x:"right"
+        anchor_y:"center"
+        Image:
+            source:"images/penpal_globe.png"
+            size_hint:[0.45, 0.45]
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            size_hint_y:0.5
+        Label:
+            id:main_title
+            font_name:"fonts/SpicyRice-Regular.ttf"
+            font_size:'27sp'
+            color:get_hex("#46b9f2")
+        Label:
+            size_hint_y:0.1
+        Label:
+            size_hint:[0, 1]
+            id:pal_name
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:pal_address
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:pal_city
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:pal_code
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            id:pal_country
+            size_hint_x:None
+            size:(50, 0)
+            font_size:'20sp'
+            font_name:"fonts/MaidenOrange.ttf"
+            AnchorLayout:
+                anchor_x:"center"
+                anchor_y:"center"
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+                Image:
+                    source:"images/flags/empty_flag.png"
+                    size_hint:[1.35, 1.35]
+        Label:
+            size_hint:[0, 1]
+            id:pal_school
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[1, 0.5]
+        Button:
+            text:"Yay !"
+            on_press:app.root.current = "menu"
+            background_color:get_hex("#29bc90")
+
+<ProfileScreen>:
+    name:"profile"
+    on_pre_enter:self.profile_display()
+    on_pre_leave:self.reset()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    AnchorLayout:
+        anchor_x:"right"
+        anchor_y:"center"
+        Image:
+            source:"images/penpal_globe.png"
+            size_hint:[0.45, 0.45]
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            size_hint_y:0.5
+        Label:
+            text:"Penpal Information"
+            font_name:"fonts/SpicyRice-Regular.ttf"
+            font_size:'28sp'
+            color:get_hex("#46b9f2")
+        Label:
+            size_hint_y:0.1
+        Label:
+            size_hint:[0, 1]
+            id:profile_name
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:profile_address
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:profile_city
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[0, 1]
+            id:profile_postcode
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint_x:None
+            size:(50, 0)
+            id:profile_country
+            font_size:'20sp'
+            font_name:"fonts/MaidenOrange.ttf"
+            AnchorLayout:
+                anchor_x:"center"
+                anchor_y:"center"
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+                Image:
+                    source:"images/flags/empty_flag.png"
+                    size_hint:[1.35, 1.35]
+        Label:
+            size_hint:[0, 1]
+            id:profile_school
+            font_size:'20sp'
+            size:self.texture_size
+            font_name:"fonts/MaidenOrange.ttf"
+        Label:
+            size_hint:[1, 0.5]
+        Button:
+            text:"Back"
+            on_press:app.root.current = "book"
+            background_color:get_hex("#29bc90")
+
+<SupportScreen>:
+    name:"support_us"
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"Support us"
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'56sp'
+        Label:
+            text:"Who are we?"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'24sp'
+        BoxLayout:
+            size_hint_y:1.5
+            orientation:"vertical"
+            Label:
+                text:"Hey, Victor here, I'm a highschool"
+            Label:
+                text:"student and founder of BinksPals."
+            Label:
+                text:"If you'd like to know more about me"
+            Label:
+                text:"and the story behind this project,"
+            Label:
+                text:"you should definitely check out the"
+            Label:
+                markup:True
+                text:"official [u][ref=storydoc][color=#89e1c7]BinksPals documentation[/color][/u][/ref]"
+        Label:
+            text:"How to support us?"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'24sp'
+        BoxLayout:
+            size_hint_y:2.4
+            orientation:"vertical"    
+            Label:
+                text:"I would love to travel to Ireland by the"
+            Label:
+                text:"end of 2022 to visit a penpal and the"
+            Label:
+                text:"University of Limerick in order to get"
+            Label:
+                text:"more information regarding their brand"
+            Label:
+                text:"new ISE course. And by donating even the"
+            Label:
+                text:"smallest amount of money, you'd help me"
+            Label:
+                text:"achieve this dreamlike project and you'd"
+            Label:
+                text:"express a very sincere respect to all the"
+            Label:
+                text:"efforts put into making BinksPals a reality."
+        Label:
+            markup:True
+            text:"[u][ref=donate]Make a donation now[/ref][/u]"
+            color:get_hex("#89e1c7")
+            on_ref_press:root.donation_page_link()
+            font_size:'20sp'
+        BoxLayout:
+            size_hint_y:0.95
+            canvas:
+                Color: 
+                    rgba:get_hex("#46b9f2")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            orientation:"horizontal"
+            background_color:get_hex("#eeeeee")
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "menu"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/globe_icon.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "book"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/book_copy.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "notif"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/comment.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/support.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "help"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/help.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "settings"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y 
+                    Image:
+                        source:"images/gear.png"
+                        size_hint:[1.5, 1.5]
+
+<StatusScreen>:
+    name:"status"
+    on_pre_enter:self.setup()
+    canvas:
+        Color:
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            pos:self.pos
+            size:self.size 
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'56sp'
+        Label:
+            text:"Create account"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'25sp'
+            color:get_hex("#61f1ea")
+        Label:
+            text:"Who are you?"
+            font_name:"fonts/MaidenOrange.ttf"
+            color:get_hex("#29bc90")
+            font_size:"20sp"
+        AnchorLayout:
+            size_hint_y:0.2
+            anchor_x:"center"
+            anchor_y:"top"
+            Label:
+                text:"Please select one of the following options"
+                size_hint_y:0.1
+        Label:
+            size_hint_y:0.3
+        BoxLayout:
+            size_hint_y:2.0
+            orientation:"horizontal"
+            Button:
+                on_press:root.send_status("student")
+                background_color:get_hex("#110f1b")
+                background_down:""
+                background_normal:""
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size_hint:[1, 1]
+                    Image:
+                        source:"images/student.png"
+                        id:image_student
+                        allow_stretch:True
+            Button:
+                on_press:root.send_status("teacher")
+                background_color:get_hex("#110f1b")
+                background_down:""
+                background_normal:""
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/teacher.png"
+                        id:image_teacher
+                        allow_stretch:True
+            Button:
+                on_press:root.send_status("admin")
+                background_color:get_hex("#110f1b")
+                background_down:""
+                background_normal:""
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/college.png"
+                        id:image_admin
+                        allow_stretch:True
+        Label:
+            size_hint_y:0.2
+        BoxLayout:
+            size_hint_y:0.15
+            orientation:"horizontal"
+            Label:
+                text:"Student"
+            Label:
+                text:"Teacher"
+            Label:
+                text:"Admin"
+        Label:
+            size_hint_y:0.4
+        Label:
+            text:"[ref=helpcreate][u]Having trouble creating your account?[/u][/ref]"
+            markup:True
+            color:get_hex("#89e1c7")
+            on_ref_press:app.root.current = "login"  
+        Label:
+            size_hint_y:0.2     
+        Button:
+            text:"Log in instead"
+            background_color:get_hex("#29bc90")
+            on_press:app.root.current = "login"
+
+
+<SignupScreen>:
+    name:"signup"
+    on_leave:self.clear_all()
+    on_pre_enter:self.setup()
+    canvas:
+        Color:
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            pos:self.pos
+            size:self.size 
+    BoxLayout:
+        id:main_layout
+        orientation:"vertical"
+        Label:
+            text:"BinksPals"
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'56sp'
+        Label:
+            text:"Create account"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'20sp'
+            color:get_hex("#61f1ea")
+        Label:
+            text:"First name"
+            size_hint_y:0.5
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                hint_text:"First name"
+                multiline:False
+                size_hint_x:0.8
+                size_hint_y:0.7
+                id:input_fn
+        Label:
+            id:invalid_fn
+            size_hint_y:0.8
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'18sp'
+        Label:
+            text:"Last name"
+            size_hint_y:0.8
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"    
+            TextInput:
+                hint_text:"Last name"
+                size_hint_x:0.8
+                size_hint_y:0.7
+                multiline:False
+                id:input_ln
+        Label:
+            id:invalid_ln
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'18sp'
+            size_hint_y:0.8
+        Label:
+            text:"Email address"
+            size_hint_y:0.8
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                hint_text:"Email"
+                size_hint_x:0.8
+                size_hint_y:0.7
+                multiline:False
+                id:input_email
+        Label:
+            id:invalid_email
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'18sp'
+            size_hint_y:0.8
+        Label:
+            text:"Password"
+            size_hint_y:0.8
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                hint_text:"Password"
+                size_hint_x:0.8
+                size_hint_y:0.7
+                multiline:False
+                password:True
+                password_mask:"•"
+                allow_copy:False
+                id:input_pw
+        Label:
+            id:invalid_pw
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'18sp'
+            size_hint_y:0.8
+        Label:
+            text:"Confirm password"
+            size_hint_y:0.8
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                hint_text:"Enter password again"
+                size_hint_x:0.8
+                size_hint_y:0.7
+                multiline:False
+                password:True
+                password_mask:"•"
+                allow_copy:False
+                id:input_confirm
+        Label:
+            id:invalid_confirm
+            size_hint_y:0.8
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            font_size:'18sp'
+        BoxLayout:
+            id:button_box
+            orientation:"horizontal"
+            Button:
+                text:"Cancel"
+                on_press:app.root.current = "login"
+                background_color:get_hex("#29bc90")
+            Button:
+                text:"Create Account"
+                on_press:root.create_account()
+                background_color:get_hex("#29bc90")
+
+<ForgotScreen>:
+    name:"forgot"
+    on_pre_enter:self.setup()
+    on_leave:self.clear_texts()
+    canvas:
+        Color:
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            pos:self.pos
+            size:self.size 
+    BoxLayout:
+        orientation:"vertical"
+        BoxLayout:
+            size_hint_y:0.4
+            orientation:"vertical"
+            Label:
+                text:"Recover password"
+                color:get_hex("#29bc90")
+                font_name:"fonts/Shadow-7WdR.ttf"
+                font_size:'40sp'
+            Label:
+                text:"Uh oh... looks like you forgot your password!"
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            Image:
+                source:"images/think_password.png"   
+                size_hint:[1, 1]
+        BoxLayout:
+            orientation:"vertical"            
+            Label:
+                size_hint_y:0.5
+            BoxLayout:
+                orientation:"vertical"
+                Label:
+                    text:"No problem, just enter the mail address"            
+                Label:
+                    text:"associated to your account so that we may"
+                Label:
+                    text:"send you a mail containing your password"
+            Label:
+                size_hint_y:0.2
+            AnchorLayout:
+                anchor_x:"center"
+                anchor_y:"center" 
+                TextInput:
+                    id:recovery_mail
+                    hint_text:"Your account's email"
+                    size_hint_x:0.8
+                    size_hint_y:0.85
+                    multiline:False
+            Label:
+                id:recovery_error
+                color:get_hex("#f54d53")
+                font_size:'20.5sp'
+                font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            BoxLayout:
+                orientation:"horizontal"
+                size_hint_y:0.75
+                Button:
+                    text:"Cancel"
+                    background_color: get_hex("#29bc90")
+                    on_press:app.root.current = "login"
+                Button:
+                    text:"Send"
+                    background_color: get_hex("#29bc90")
+                    on_press:root.send_password()
+
+<BookScreen>:
+    name:"book"
+    on_pre_enter:self.build_list()
+    on_pre_leave:self.parent.set_last_entered("book")
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        id:width_layout
+        orientation:"vertical"
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint_y:0.2
+            canvas.before:
+                Color: 
+                    rgba:get_hex("#0f3334")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            Label:
+                id:book_title
+                text:"Penpal Book"
+                color:get_hex("#61f1ea")
+                font_name:"fonts/Shadow-7WdR.ttf"
+                font_size:'36sp'
+        Label:
+            size_hint_y:0.001
+            canvas.before:
+                Color: 
+                    rgba:get_hex("#00ff91")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+        ScrollView:
+            do_scroll_x:False
+            do_scroll_y:True
+            BoxLayout:
+                canvas.before:
+                    Color:
+                        rgba:get_hex("#c2e4ed")
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+                id:book_layout
+                orientation:"vertical"
+                size_hint_y:None
+                height:0
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba:get_hex("#46b9f2")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            orientation:"horizontal"
+            size_hint_y:0.145
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "menu"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/globe_icon.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/book_copy.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "notif"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/comment.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "support_us"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/support.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "help"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/help.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "settings"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/gear.png"
+                        size_hint:[1.5, 1.5]
+
+<HelpScreen>:
+    name:"help"
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"Help"
+            font_name:"fonts/Shadow-7WdR.ttf"
+            color:get_hex("#29bc90")
+            font_size:'65sp'
+        Label:
+            text:"How does BinksPals work?"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'24sp'
+        BoxLayout:
+            orientation:"vertical"
+            size_hint_y:2.3
+            Label:
+                text:"With BinksPals, you can connect to schools"
+            Label:
+                text:"worldwide within just one click. As a student,"
+            Label:
+                text:"you can easily get a penpal with whom you may"
+            Label:
+                text:"exchange handwritten letters every 30 days."
+            Label:
+                text:"As a teacher, you can browse all the different"
+            Label:
+                text:"schools registered in the BinksPals database"
+            Label:
+                text:"and quickly get in touch with another teacher"
+            Label:
+                text:"interested into helping you organising an"
+            Label:
+                text:"international exchange like trips for example."
+        Label:
+            text:"Is BinksPals safe?"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'24sp'
+        BoxLayout:
+            orientation:"vertical"
+            size_hint_y:2.0
+            Label:
+                text:"BinksPals is very concerned about its safety."
+            Label:
+                text:"For this reason, the application was intended"
+            Label:
+                text:"to be exclusive to educational establishments"
+            Label:
+                text:"and account creations are highly controlled."
+            Label:
+                markup:True
+                text:"We also invite you to read our [u][ref=safety][color=#89e1c7]safety guide[/color][/ref][/u] so"
+                on_ref_press:root.open_safety()
+            Label:  
+                text:"that everyone may use BinksPals without worry"
+            Label:
+                text:"(we promise, it's not too long)"
+        Label:
+            text:"[ref=helpdoc][u]More help available here[/ref][/u]"
+            markup:True
+            font_size:'21.5sp'
+            color:get_hex("#89e1c7")
+            on_ref_press:root.open_doc()
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba:get_hex("#46b9f2")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            orientation:"horizontal"
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "menu"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/globe_icon.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "book"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/book_copy.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "notif"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/comment.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "support_us"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/support.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/help.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "settings"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/gear.png"
+                        size_hint:[1.5, 1.5]
+
+<SettingsScreen>:
+    name:"settings"
+    on_pre_enter:self.setup()
+    on_leave:self.clear_errors()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"Settings"
+            font_name:"fonts/Shadow-7WdR.ttf"
+            color:get_hex("#29bc90")
+            font_size:'50sp'
+        Label:
+            size_hint_y:0.2
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"Edit password"
+                font_name:"fonts/MaidenOrange.ttf"
+                font_size:'20sp'
+                color:get_hex("#61f1ea")
+            Label:
+                text:"If edited, a confirmation code"
+                font_size:'11sp'
+                italic:True
+            Label:
+                text:"will be sent to your email address"
+                font_size:'11sp'
+                italic:True
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                size_hint_y:0.75
+                size_hint_x:0.8
+                multiline:False
+                id:new_password
+                hint_text:"New password"
+        Label:
+            size_hint_y:0.35
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                size_hint_y:0.75
+                size_hint_x:0.8
+                multiline:False
+                id:confirm_new
+                hint_text:"Confirm new password"
+        Label:
+            id:invalid_new
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            size_hint_y:0.65
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"Make me invisible"
+                font_name:"fonts/MaidenOrange.ttf"
+                font_size:'20sp'
+                size_hint_y:1.3
+                color:get_hex("#61f1ea")
+                CheckBox:
+                    canvas.before:
+                        Color:
+                            rgb: get_hex("#89e1c7")
+                        Rectangle:
+                            pos:self.center_x-sp(8), self.center_y-sp(8)
+                            size:[sp(16),sp(16)]
+                        Color:
+                            rgb: 1,1,1
+                        Rectangle:
+                            pos:self.center_x-sp(7), self.center_y-sp(7)
+                            size:[sp(14),sp(14)]
+                    id:is_invisible
+                    center_x:self.parent.center_x + sp(80)
+                    center_y:self.parent.center_y
+            Label:
+                text:"If selected, this will prevent others from"
+                font_size:'11sp'
+                italic:True
+            Label:
+                text:"getting your school address' information"
+                font_size:'11sp'
+                italic:True
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"bottom"
+            Label:
+                text:"Country preferences"
+                font_name:"fonts/MaidenOrange.ttf"
+                font_size:'20sp'
+                size_hint_y:0.6
+                color:get_hex("#61f1ea")
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            TextInput:
+                size_hint_y:0.75
+                size_hint_x:0.8
+                multiline:False
+                id:country_codes
+                hint_text:"Country codes"
+        BoxLayout:
+            orientation:"vertical"
+            Label:
+                text:"Enter the country codes (separated by a comma)"
+                italic:True
+                font_size:'12sp'
+            Label:
+                text:"of the countries you'd like to exchange with. Let"
+                italic:True
+                font_size:'12sp'
+            Label:
+                text:"empty if you'd like to exchange with any country."
+                italic:True
+                font_size:'12sp'
+        Label:
+            id:invalid_countries
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            size_hint_y:0.5
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"    
+            Button:
+                size_hint_x:0.75
+                text:"Save settings"
+                background_color:get_hex("#29bc90")
+                on_press:root.update_settings()
+        Label:
+            size_hint_y:0.5
+        BoxLayout:
+            size_hint_y:1.35
+            canvas.before:
+                Color:
+                    rgba:get_hex("#46b9f2")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            orientation:"horizontal"
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "menu"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/globe_icon.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "book"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/book_copy.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "notif"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/comment.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "support_us"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/support.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "help"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/help.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/gear.png"
+                        size_hint:[1.5, 1.5]
+
+<NotificationScreen>:
+    name:"notif"
+    on_enter:self.setup()
+    on_pre_leave:self.clear_notif()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    Label:
+        id:loading_label
+        font_size:'20sp'
+    BoxLayout:
+        id:width_layout
+        orientation:"vertical"
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint_y:0.2
+            canvas.before:
+                Color: 
+                    rgba:get_hex("#0f3334")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            Label:
+                text:"Notifications"
+                color:get_hex("#61f1ea")
+                font_name:"fonts/Shadow-7WdR.ttf"
+                font_size:'36sp'
+        Label:
+            size_hint_y:0.001
+            canvas.before:
+                Color: 
+                    rgba:get_hex("#00ff91")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+        ScrollView:
+            do_scroll_x:False
+            do_scroll_y:True
+            BoxLayout:
+                canvas.before:
+                    Color:
+                        rgba:get_hex("#c2e4ed")
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+                id:notif_layout
+                orientation:"vertical"
+                size_hint_y:None
+                height:0
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba:get_hex("#46b9f2")
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            orientation:"horizontal"
+            size_hint_y:0.145
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "menu"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/globe_icon.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "book"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/book_copy.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/comment.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "support_us"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/support.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "help"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/help.png"
+                        size_hint:[1.5, 1.5]
+            Button:
+                background_color:get_hex("#29bc90")
+                on_press:app.root.current = "settings"
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    Image:
+                        source:"images/gear.png"
+                        size_hint:[1.5, 1.5]
+
+<ActivationNotificationScreen>:
+    name:"activation_request"
+    on_pre_enter:self.setup()
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:
+            text:"Activation Request"
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'42sp'
+        BoxLayout:
+            size_hint_y:2.5
+            orientation:"vertical"
+            Label:
+                text:"From [color=#87e84f][b]Victor Pottier[/color][/b]"
+                id:person_name
+                size_hint_y:2.0
+                markup:True
+            Label:
+                text:"email: {person_email}"
+                id:person_email
+                size_hint_y:2.0
+                font_size:'16sp'
+                markup:True
+            Label:
+                size_hint_y:0.2
+            Label:
+                text:"This {account status} requires your"
+                id:person_status
+            Label:
+                text:"confirmation to activate their"
+            Label:
+                text:"BinksPals account. Make sure this"
+            Label:
+                text:"person has informed you in person"
+            Label:
+                text:"of their will to create such an"
+            Label:
+                text:"account and that they respect the"
+            Label:
+                text:"[u][color=#89e1c7][ref=require]requirements stated here[/ref][/color][/u]"
+                markup:True
+                on_ref_press:root.open_doc()
+        Label:
+            size_hint_y:0.2
+        Label:
+            text:"Should this account be activated?"
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'21sp'
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            Image:
+                source:"images/manage_user.png"
+        BoxLayout:
+            orientation:"horizontal"
+            BoxLayout:
+                orientation:"vertical"
+                Label:
+                    text:"Refuse"
+                    bold:True
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    Button:
+                        size_hint_x:0.25
+                        size_hint_y:0.75
+                        on_press:root.refuse()
+                        background_down:""
+                        background_color:get_hex("#110f1b")
+                        background_normal:""
+                        AnchorLayout:
+                            anchor_x:"center"
+                            anchor_y:"center"
+                            center_x:self.parent.center_x
+                            center_y:self.parent.center_y
+                            Image:
+                                source:"images/remove.png"
+                                size_hint:[0.5, 0.5]
+            BoxLayout:
+                orientation:"vertical"
+                Label:
+                    text:"Activate"
+                    bold:True
+                AnchorLayout:
+                    anchor_x:"center"
+                    anchor_y:"center"
+                    Button:
+                        size_hint_x:0.25
+                        size_hint_y:0.75
+                        on_press:root.accept()
+                        background_color:get_hex("#110f1b")
+                        background_down:""
+                        background_normal:""
+                        AnchorLayout:
+                            anchor_x:"center"
+                            anchor_y:"center"
+                            center_x:self.parent.center_x
+                            center_y:self.parent.center_y
+                            Image:
+                                source:"images/check.png"
+                                size_hint:[0.5, 0.5]
+        Label:
+            size_hint_y:0.4
+        Button:
+            text:"Back to notifications"
+            background_color:get_hex("#29bc90")
+            on_press:app.root.current = "notif"
+
+<TeacherContactScreen>:
+    name:"teacher_contact"
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        orientation:"vertical"
+        Label:    
+            text:"Contact Request"
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+            font_size:'42sp'
+        BoxLayout:
+            size_hint_y:2.5
+            orientation:"vertical"
+            Label:
+                text:"[color=#87e84f][b]Victor Pottier[/color][/b], teacher from:"
+                id:teacher_name
+                size_hint_y:2.0
+                markup:True
+            Label:
+                id:teacher_school
+                size_hint_y:2.0
+                font_size:'16sp'
+                markup:True
+                bold:True
+            Label:
+                size_hint_y:0.2
+            Label:
+                text:"would like to contact you"
+            Label:
+                text:"for the following motive:"
+            Label:
+                id:contact_motive
+        Label:
+            size_hint_y:0.2
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"center"
+            size_hint_y:2.0
+            Image:
+                source:"images/penpal_globe.png"
+        Label:
+            text:"Contact: "
+            id:teacher_email
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'21sp'
+        Label:
+            size_hint_y:0.4
+        Button:
+            text:"Back to notifications"
+            background_color:get_hex("#29bc90")
+            on_press:app.root.current = "notif"
+        

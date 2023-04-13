@@ -1,0 +1,30 @@
+<SomeScreen>:
+    canvas:
+        Color: 
+            rgba:get_hex("#110f1b")
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    <SomeLayout>:
+        Title:
+            color:get_hex("#29bc90")
+            font_name:"fonts/Shadow-7WdR.ttf"
+
+        SubTitle:
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+            color:get_hex("#61f1ea")
+            font_size:'30sp'
+        
+        LightGreen:
+            color:#87e84f
+        
+        Link:
+            markup:True
+            text:"[u][color=#89e1c7][ref=][/ref][/color][/u]"
+        
+        Errors:
+            color:get_hex("#f54d53")
+            font_name:"fonts/LunaticSuperstar-8KgB.otf"
+
+        Button:
+            background_color:get_hex("#29bc90")

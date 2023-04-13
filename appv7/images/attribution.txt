@@ -1,0 +1,14 @@
+think_password.png : <a href="https://www.freepnglogos.com/pics/thinking">Thinking from freepnglogos.com</a>
+earth_planet.png: CC0
+penpal_globe.png: <a href="https://www.flaticon.com/free-icons/pen-pals" title="pen pals icons">Pen pals icons created by Freepik - Flaticon</a>
+book.png:<a href="https://www.clipartmax.com/middle/m2i8H7G6A0H7N4N4_open-book-tutorial-icon-vector/" target="_blank">Open Book - Tutorial Icon Vector @clipartmax.com</a>
+
+
+search.png: <a href="https://www.flaticon.com/free-icons/magnifying-glass" title="magnifying glass icons">Magnifying glass icons created by Dixit Lakhani_02 - Flaticon</a>
+school.png:<a href="https://www.flaticon.com/free-icons/school" title="school icons">School icons created by Freepik - Flaticon</a>
+confirm_mail:<a href="https://www.flaticon.com/free-icons/mail" title="mail icons">Mail icons created by Icongeek26 - Flaticon</a>
+globe_icon:<a href="https://www.flaticon.com/free-icons/earth" title="earth icons">Earth icons created by Freepik - Flaticon</a>
+globe_icon_transparent:<a href="https://www.flaticon.com/free-icons/world" title="world icons">World icons created by turkkub - Flaticon</a>
+gear:<a href="https://www.flaticon.com/free-icons/gear" title="gear icons">Gear icons created by Freepik - Flaticon</a>
+help:<a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Roundicons - Flaticon</a>
+support:<a href="https://www.flaticon.com/free-icons/love" title="love icons">Love icons created by Freepik - Flaticon</a>
